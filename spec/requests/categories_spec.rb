@@ -18,11 +18,11 @@ RSpec.describe "/categories", type: :request do
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:category)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:invalid_category)
   }
 
   describe "GET /index" do
@@ -79,7 +79,7 @@ RSpec.describe "/categories", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post categories_url, params: { category: invalid_attributes }
-        expect(response).to be_successful
+        assert_template 'categories/new'
       end
     end
   end
@@ -87,7 +87,7 @@ RSpec.describe "/categories", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for(:category)
       }
 
       it "updates the requested category" do
@@ -109,7 +109,7 @@ RSpec.describe "/categories", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         category = Category.create! valid_attributes
         patch category_url(category), params: { category: invalid_attributes }
-        expect(response).to be_successful
+        assert_template 'categories/edit'
       end
     end
   end

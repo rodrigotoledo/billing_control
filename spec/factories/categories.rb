@@ -1,5 +1,8 @@
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
+    name { Faker::Commerce.department }
+    factory :invalid_category do
+      name { "" }
+    end
   end
 end
