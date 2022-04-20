@@ -1,3 +1,5 @@
 class Category < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :description, presence: true
+
+  has_rich_text :description
 end

@@ -1,7 +1,12 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-
+<div id="<%= dom_id category %>" class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><%=category.name%></h5>
+    <% unless category.description.blank? %>
+    <div class="card-text">
+      <div class="trix-content">
+        <%= category.description %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

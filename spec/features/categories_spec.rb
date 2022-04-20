@@ -8,6 +8,7 @@ RSpec.feature "Categories management", :type => :feature do
     end
     scenario "User creates a new category" do
       fill_in "Name",	with: "Category of example" 
+      fill_in_trix_editor "category_description",	with: "Repellat et qui illum amet et aut."
       click_button "Create Category"
 
       expect(page).to have_text("Category was successfully created.")

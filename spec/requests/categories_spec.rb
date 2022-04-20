@@ -94,7 +94,8 @@ RSpec.describe "/categories", type: :request do
         category = Category.create! valid_attributes
         patch category_url(category), params: { category: new_attributes }
         category.reload
-        skip("Add assertions for updated state")
+        expect(category.name).to eq(new_attributes[:name])
+        expect(category.description.to_plain_text).to eq(new_attributes[:description])
       end
 
       it "redirects to the category" do
