@@ -80,6 +80,8 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 4.0', require: false
 end
 
 gem 'bootstrap', '~> 5.0'
