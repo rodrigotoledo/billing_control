@@ -11,8 +11,7 @@ RSpec.describe 'Categories management', type: :feature do
 
     it 'User creates a new category' do
       fill_in 'Name',	with: 'Category of example'
-      # fill_in "Description",	with: "Repellat et qui illum amet et aut."
-      fill_in_trix_editor 'category_description',	with: 'Repellat et qui illum amet et aut.'
+      find(:xpath, "//\*[@id='category_description_trix_input_category']", visible: false).set('My awesome content')
       click_button 'Create Category'
 
       expect(page).to have_text('Category was successfully created.')
